@@ -61,10 +61,8 @@ model.load_state_dict(torch.load(downloaded_model_path, map_location=device))
 model.eval()
 
 if uploaded_file is not None:
-    # Load the image and convert to grayscale
     image = Image.open(uploaded_file).convert('L')
 
-    # Initialize HOG feature extractor
     hog = HOG(9, 8, 2)
     features = hog.GetFeatures(image)
     features_tensor = torch.tensor(features, dtype=torch.float32).unsqueeze(0)
@@ -85,7 +83,7 @@ if uploaded_file is not None:
     """, unsafe_allow_html=True)
 
     # Display the uploaded image
-    st.image(image, caption="Uploaded Image", use_column_width=True, output_format="PNG")
+    st.image(Image.open(uploaded_file), caption="Uploaded Image", use_column_width=True, output_format="PNG")
 else:
     st.markdown("""
         <div style="text-align: center; font-size: 16px; color: #a6a6a6;">
