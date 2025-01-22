@@ -6,11 +6,11 @@ from HOG import HOG
 from Softmax import Softmax
 
 # Set up the title
-st.title("🚀 HOG with Softmax for classification of Cars,planes,Trains")
+st.title("🚀 HOG with Softmax for Classification of Cars, Planes, Trains")
 
 # Description and instructions
 st.markdown("""
-    <p style="text-align: center; font-size: 16px; color: #4c4c4c;">
+    <p style="text-align: center; font-size: 18px; color: #4c4c4c;">
     Upload an image to classify it into one of the predefined categories. 
     Supported formats: <b>JPG, PNG, JPEG, BMP</b>.
     </p>
@@ -82,8 +82,8 @@ if uploaded_file is not None:
         </div>
     """, unsafe_allow_html=True)
 
-    # Display the uploaded image
-    st.image(Image.open(uploaded_file), caption="Uploaded Image", use_column_width=True, output_format="PNG")
+    # Display the uploaded image in a larger size
+    st.image(Image.open(uploaded_file), caption="Uploaded Image", use_column_width=True)
 else:
     st.markdown("""
         <div style="text-align: center; font-size: 16px; color: #a6a6a6;">
